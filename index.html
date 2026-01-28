@@ -125,10 +125,14 @@
   }
 }
 </script>
+<!-- Add Babel for in-browser compilation -->
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <link rel="stylesheet" href="/index.css">
 </head>
   <body class="bg-gray-50 dark:bg-[#050507] text-gray-900 dark:text-gray-100 transition-colors duration-500 antialiased">
     <div id="root"></div>
+    <!-- Entry point using relative path and babel type -->
+    <script type="text/babel" data-type="module" src="./index.tsx"></script>
   <script type="module" src="/index.tsx"></script>
 </body>
 </html>

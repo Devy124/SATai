@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, memo, useCallback } from 'react';
-import { Question, QuizSettings, Stats, DailyStreak, QuizState } from './types';
-import Background from './components/Background';
-import StudyLibrary from './components/StudyLibrary';
-import { explainQuestion, generateQuestions } from './services/gemini';
-import { AuthService } from './services/auth';
+import { Question, QuizSettings, Stats, DailyStreak, QuizState } from './types.ts';
+import Background from './components/Background.tsx';
+import StudyLibrary from './components/StudyLibrary.tsx';
+import { explainQuestion, generateQuestions } from './services/gemini.ts';
+import { AuthService } from './services/auth.ts';
 
 // --- Constants ---
 

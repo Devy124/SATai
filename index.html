@@ -2,29 +2,31 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SATAI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>aiSAT | Next-Gen SAT Prep</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         darkMode: 'class',
         theme: {
           extend: {
             fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              mono: ['JetBrains Mono', 'monospace'],
+              sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              background: '#0f172a', // Slate 900
+              surface: '#1e293b',    // Slate 800
             },
             animation: {
-              'float': 'float 6s ease-in-out infinite',
-              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'spin-slow': 'spin 120s linear infinite',
-              'shimmer': 'shimmer 2s linear infinite',
-              'gradient-x': 'gradient-x 3s ease infinite',
-              'pop': 'pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
-              'slide-up': 'slideUp 0.5s ease-out forwards',
-              'shake': 'shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both',
-              'fade-in': 'fadeIn 0.3s ease-out forwards',
+              'float': 'float 8s ease-in-out infinite',
+              'pulse-slow': 'pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'shimmer': 'shimmer 2.5s linear infinite',
+              'slide-up': 'slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'scale-in': 'scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+              'pop': 'pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
             },
             keyframes: {
               float: {
@@ -35,84 +37,73 @@
                 '0%': { backgroundPosition: '200% 0' },
                 '100%': { backgroundPosition: '-200% 0' }
               },
-              'gradient-x': {
-                '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
-                '50%': { 'background-size': '200% 200%', 'background-position': 'right center' },
-              },
-              pop: {
-                '0%': { transform: 'scale(0.95)', opacity: '0.5' },
-                '100%': { transform: 'scale(1)', opacity: '1' }
-              },
               slideUp: {
                 '0%': { transform: 'translateY(20px)', opacity: '0' },
                 '100%': { transform: 'translateY(0)', opacity: '1' }
               },
-              shake: {
-                '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
-                '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
-                '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
-                '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
-              },
               fadeIn: {
                 '0%': { opacity: '0' },
                 '100%': { opacity: '1' }
+              },
+              scaleIn: {
+                '0%': { transform: 'scale(0.95)', opacity: '0' },
+                '100%': { transform: 'scale(1)', opacity: '1' }
+              },
+              pop: {
+                '0%': { transform: 'scale(0.95)' },
+                '50%': { transform: 'scale(1.02)' },
+                '100%': { transform: 'scale(1)' }
               }
+            },
+            boxShadow: {
+              'glow-blue': '0 0 20px -5px rgba(59, 130, 246, 0.5)',
+              'glow-indigo': '0 0 20px -5px rgba(99, 102, 241, 0.5)',
+              'glow-purple': '0 0 20px -5px rgba(168, 85, 247, 0.5)',
             }
           }
         }
       }
     </script>
     <style>
-      body {
-        margin: 0;
-        overflow-x: hidden;
-      }
+      body { margin: 0; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
       
-      /* Glassmorphism Utilities */
+      /* Premium Glass Effect */
       .glass-panel {
-        background: rgba(255, 255, 255, 0.75);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px) saturate(180%);
+        -webkit-backdrop-filter: blur(20px) saturate(180%);
         border: 1px solid rgba(255, 255, 255, 0.5);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
       }
       
       .dark .glass-panel {
-        background: rgba(15, 15, 20, 0.75);
+        background: rgba(15, 23, 42, 0.6);
         border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
       }
 
       .glass-card {
-        background: rgba(255, 255, 255, 0.6);
+        background: rgba(255, 255, 255, 0.4);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.3);
       }
 
       .dark .glass-card {
-        background: rgba(30, 30, 35, 0.6);
+        background: rgba(30, 41, 59, 0.4);
         border: 1px solid rgba(255, 255, 255, 0.05);
       }
-
-      /* Scrollbar */
-      ::-webkit-scrollbar {
-        width: 6px;
-        height: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: rgba(156, 163, 175, 0.3);
-        border-radius: 99px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: rgba(156, 163, 175, 0.5);
-      }
       
-      /* Selection color */
+      /* Smooth Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar { width: 5px; }
+      .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+      .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.3); border-radius: 20px; }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.5); }
+      
+      /* Text Selection */
       ::selection {
-        background-color: rgba(99, 102, 241, 0.3); /* indigo-500 with opacity */
-        color: inherit;
+        background: #6366f1;
+        color: white;
       }
     </style>
   <script type="importmap">
@@ -121,18 +112,16 @@
     "react": "https://esm.sh/react@^19.2.4",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
     "react/": "https://esm.sh/react@^19.2.4/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.38.0"
+    "@google/genai": "https://esm.sh/@google/genai@^1.38.0",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
   }
 }
 </script>
-<!-- Add Babel for in-browser compilation -->
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-gray-50 dark:bg-[#050507] text-gray-900 dark:text-gray-100 transition-colors duration-500 antialiased">
+  <body class="bg-slate-50 dark:bg-[#020617] text-slate-900 dark:text-slate-100 transition-colors duration-500">
     <div id="root"></div>
-    <!-- Entry point using relative path and babel type -->
-    <script type="text/babel" data-type="module" src="./index.tsx"></script>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
